@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const http = require('http');
 const {Server, Namespace} = require("socket.io");
+require('dotenv').config();
 
 const app = express();
 app.use(cors());
@@ -48,6 +49,6 @@ socket.on("send_message", (data) => {
 
 })
 
-server.listen(3000, () => {
-    console.log("Server is listening on port 3000");
+server.listen(process.env.port, () => {
+    console.log(`Server is listening on port ${process.env.port}`);
 })
